@@ -192,6 +192,7 @@ const SUGGESTIONS = [
   "Tell me about his projects",
   "How can I contact him?",
   "What training did he complete?",
+  "Where did he study?",
 ];
 
 export default function CopilotPanel({ open, close }: Props) {

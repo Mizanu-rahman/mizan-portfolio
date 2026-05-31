@@ -24,15 +24,12 @@ const MENUS: Record<
   { label: string; shortcut?: string; action?: string }[]
 > = {
   File: [
-    { label: "New Tab", shortcut: "Ctrl+T", action: "newTab" },
-    { label: "---" },
     { label: "Download Resume", shortcut: "Ctrl+S", action: "downloadResume" },
     { label: "---" },
     { label: "Close Window", shortcut: "Alt+F4", action: "closeWindow" },
   ],
   Edit: [
     { label: "Find File", shortcut: "Ctrl+P", action: "palette" },
-    { label: "Find in Files", shortcut: "Ctrl+Shift+F", action: "findInFiles" },
     { label: "---" },
     { label: "Command Palette", shortcut: "Ctrl+Shift+P", action: "palette" },
   ],
@@ -132,7 +129,7 @@ export default function Menubar({
 
     // File
     if (action === "newTab") {
-      openFile("home");
+      window.location.reload();
       return;
     }
     if (action === "downloadResume") {
@@ -239,12 +236,8 @@ export default function Menubar({
       alert(
         "🤖 Mizan's AI Copilot\n" +
           "Powered by Google Gemini 2.0 Flash\n" +
-          "This AI assistant knows everything about Mizan \n" +
-          "Ask anything like:\n" +
-          "• What are his skills?\n" +
-          "• Tell me about his projects\n" +
-          "• How can I contact him?\n" +
-          "• Where did he study?",
+          "This AI assistant knows everything relevant about Mizan \n" +
+          "Try asking 😄",
       );
       return;
     }

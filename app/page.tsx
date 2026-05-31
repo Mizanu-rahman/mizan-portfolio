@@ -45,9 +45,11 @@ export default function Page() {
 
   const clearTerminal = () => {
     setTerminalOpen(false);
-    setTimeout(() => setTerminalOpen(true), 50);
+    setTimeout(() => {
+      setPendingCommand("clear");
+      setTerminalOpen(true);
+    }, 100);
   };
-
   const runTerminalCommand = (command: string) => {
     setPendingCommand(command);
     if (terminalOpen) {
