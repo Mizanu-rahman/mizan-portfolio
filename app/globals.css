@@ -854,13 +854,67 @@ button.hover\:bg-vscode-blue2:hover {
   }
 }
 @media (max-width: 768px) {
+  /* Only show when sidebar-open class is present */
+  .app-grid.sidebar-open [style*="grid-area: side"] {
+    display: flex !important;
+  }
+
   /* Force sidebar hidden by default on mobile */
   [style*="grid-area: side"] {
     display: none !important;
   }
 
-  /* Only show when sidebar-open class is present */
-  .app-grid.sidebar-open [style*="grid-area: side"] {
+  /* Smooth scrolling */
+  html,
+  body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+  .app-grid {
+    height: auto !important;
+    min-height: 100dvh;
+  }
+  [style*="grid-area: editor"] {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .home-wrapper,
+  .pane-enter {
+    overflow: visible !important;
+  }
+
+  /* Hide custom cursor on mobile */
+  #retro-cursor-outer,
+  #retro-cursor-inner {
+    display: none !important;
+  }
+
+  /* Restore default cursor on mobile */
+  * {
+    cursor: auto !important;
+  }
+
+  /* Statusbar: show only theme and time on mobile */
+  [style*="grid-area: status"] {
+    justify-content: flex-end !important;
+    padding-right: 8px !important;
+  }
+
+  [style*="grid-area: status"] .sb-l {
+    display: none !important;
+  }
+
+  [style*="grid-area: status"] .sbi:nth-last-child(n + 3) {
+    display: none !important;
+  }
+
+  /* Show avatar on about page in mobile */
+  .home-avatar {
     display: flex !important;
+    width: 70px !important;
+    height: 70px !important;
+    margin-left: 0 !important;
   }
 }

@@ -69,8 +69,10 @@ export const resumeData = {
       stack: [
         "React",
         "TypeScript",
-        "Vite",
+        "EF Core",
         ".NET 8 Web API",
+        "Angular",
+
         "EF Core",
         "SQL Server",
         "JWT",

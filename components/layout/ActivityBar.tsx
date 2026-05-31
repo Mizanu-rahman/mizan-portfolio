@@ -59,9 +59,14 @@ export default function ActivityBar({
       </button>
       <button
         title="Download Resume"
-        onClick={() =>
-          window.open("https://github.com/Mizanur-Rahmann", "_blank")
-        }
+        onClick={() => {
+          const link = document.createElement("a");
+          link.href = "/resume.pdf";
+          link.download = "Mizanur_Rahman_Resume.pdf";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }}
         className="relative w-11 h-11 flex items-center justify-center rounded-md transition-colors duration-150 border-none outline-none text-white/40 hover:text-white/85 hover:bg-white/[0.05]"
       >
         <Download size={20} />

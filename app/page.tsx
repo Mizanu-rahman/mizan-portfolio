@@ -76,13 +76,17 @@ export default function Page() {
   });
   const openFile = useCallback((id: string) => {
     if (id === "resume") {
-      window.open("https://github.com/Mizanur-Rahmann", "_blank");
+      const link = document.createElement("a");
+      link.href = "/resume.pdf";
+      link.download = "Mizanur_Rahman_Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
       return;
     }
     setActiveFile(id);
     setOpenTabs((prev) => (prev.includes(id) ? prev : [...prev, id]));
 
-    // Close sidebar on mobile after selecting a file
     if (typeof window !== "undefined" && window.innerWidth <= 768) {
       setSidebarOpen(false);
     }
@@ -194,9 +198,16 @@ export default function Page() {
         toggleCopilot={() => setCopilotOpen((p) => !p)}
         triggerRef={actBarRef}
       />
-      <div className={gridClass} style={{ zoom: pageZoom }}>
+      <div
+        className={gridClass}
+        style={
+          typeof window !== "undefined" && window.innerWidth <= 768
+            ? undefined
+            : { zoom: pageZoom }
+        }
+      >
+        {" "}
         <Topbar openCommandPalette={() => setPaletteOpen(true)} />
-
         <Menubar
           openCommandPalette={() => setPaletteOpen(true)}
           openFile={openFile}
@@ -211,7 +222,6 @@ export default function Page() {
           resetZoom={resetZoom}
           toggleFullscreen={toggleFullscreen}
         />
-
         <ActivityBar
           sidebarOpen={sidebarOpen}
           toggleSidebar={() => setSidebarOpen((p) => !p)}
@@ -220,7 +230,6 @@ export default function Page() {
           openSettings={() => setSettingsOpen((prev) => !prev)}
           containerRef={actBarRef}
         />
-
         <Sidebar
           sidebarOpen={sidebarOpen}
           activeFile={activeFile}
@@ -229,11 +238,11 @@ export default function Page() {
           openSettings={() => setSettingsOpen(true)}
           closeSidebar={() => setSidebarOpen(false)}
         />
-
         <div
-          className="flex flex-col overflow-hidden bg-vscode-bg"
+          className="flex flex-col overflow-y-auto bg-vscode-bg"
           style={{ gridArea: "editor" }}
         >
+          {" "}
           <Editor
             activeFile={activeFile}
             setActiveFile={openFile}
@@ -249,9 +258,7 @@ export default function Page() {
             onCommandRun={() => setPendingCommand("")}
           />
         </div>
-
         <CopilotPanel open={copilotOpen} close={() => setCopilotOpen(false)} />
-
         <Statusbar
           activeFile={activeFile}
           theme={theme}

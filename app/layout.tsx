@@ -5,8 +5,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Mizanur Rahman | Portfolio",
   description: "Full-Stack .NET Developer — Chattogram, Bangladesh",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
-
 export default function RootLayout({
   children,
 }: {
@@ -15,8 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jetbrainsMono.variable} ${syne.variable} antialiased overflow-hidden`}
+        className={`${jetbrainsMono.variable} ${syne.variable} antialiased`}
       >
+        {" "}
         {children}
       </body>
     </html>
