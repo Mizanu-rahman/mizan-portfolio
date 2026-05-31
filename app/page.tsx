@@ -81,6 +81,11 @@ export default function Page() {
     }
     setActiveFile(id);
     setOpenTabs((prev) => (prev.includes(id) ? prev : [...prev, id]));
+
+    // Close sidebar on mobile after selecting a file
+    if (typeof window !== "undefined" && window.innerWidth <= 768) {
+      setSidebarOpen(false);
+    }
   }, []);
   const closeTab = useCallback(
     (id: string) => {
