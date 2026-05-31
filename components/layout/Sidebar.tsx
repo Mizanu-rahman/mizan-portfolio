@@ -2,7 +2,7 @@
 
 // import { files } from "@/lib/files";
 import { GitBranch } from "lucide-react";
-import { files, type FileItem } from "@/lib/files"; // adjust if your export is different
+import { files } from "@/lib/files"; // adjust if your export is different
 
 type Props = {
   sidebarOpen: boolean;

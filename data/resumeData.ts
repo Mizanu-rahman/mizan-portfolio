@@ -223,6 +223,7 @@ export const resumeData = {
   training: {
     title: "IsDB-BISEW IT Scholarship Programme – Round 67",
     subtitle: "Intensive 10-month full-stack development training (2025–2026)",
+    provider: "Show & Tell Consulting Ltd.",
     points: [
       "700+ hours of hands-on coding in C#, ASP.NET Core, Angular, React, MSSQL",
       "Built multiple real-world projects individually and in teams",

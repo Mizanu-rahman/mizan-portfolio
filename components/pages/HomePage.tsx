@@ -80,7 +80,7 @@ export default function HomePage({ setActiveFile }: Props) {
           {ROLE_TAGS.map((t) => (
             <div
               key={t.label}
-              className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs border rounded-sm bg-white/[0.03] hover:border-white/20 transition-colors ${t.pink ? "border-vscode-pink/30 text-vscode-pink" : "border-white/10"}`}
+              className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs border rounded-sm bg-white/[0.03] hover:border-white/20 transition-colors border-white/10`}
             >
               <span
                 className="w-[7px] h-[7px] rounded-full flex-shrink-0"
