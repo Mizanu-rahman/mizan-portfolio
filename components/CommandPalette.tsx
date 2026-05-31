@@ -22,6 +22,7 @@ type Props = {
   toggleSidebar?: () => void;
   setTheme?: (t: string) => void;
   toggleCopilot?: () => void;
+  currentTheme?: string;
 };
 
 export default function CommandPalette({
@@ -32,6 +33,7 @@ export default function CommandPalette({
   toggleSidebar,
   setTheme,
   toggleCopilot,
+  currentTheme,
 }: Props) {
   const [query, setQuery] = useState("");
   const [selIdx, setSelIdx] = useState(0);
