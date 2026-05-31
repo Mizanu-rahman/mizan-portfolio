@@ -21,6 +21,7 @@ type Props = {
   toggleTerminal?: () => void;
   toggleSidebar?: () => void;
   setTheme?: (t: string) => void;
+  toggleCopilot?: () => void;
 };
 
 export default function CommandPalette({
@@ -30,6 +31,7 @@ export default function CommandPalette({
   toggleTerminal,
   toggleSidebar,
   setTheme,
+  toggleCopilot,
 }: Props) {
   const [query, setQuery] = useState("");
   const [selIdx, setSelIdx] = useState(0);
