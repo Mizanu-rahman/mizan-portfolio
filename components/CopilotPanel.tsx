@@ -188,7 +188,7 @@ type Msg = { role: "user" | "bot"; text: string };
 type Props = { open: boolean; close: () => void };
 
 const SUGGESTIONS = [
-  "What are Mizanur's main skills?",
+  "What are Mizan's main skills?",
   "Tell me about his projects",
   "How can I contact him?",
   "What training did he complete?",
@@ -226,9 +226,10 @@ export default function CopilotPanel({ open, close }: Props) {
   }, [msgs, loading, typingText]);
 
   useEffect(() => {
-    if (open) setTimeout(() => inputRef.current?.focus(), 120);
+    if (open && window.innerWidth > 768) {
+      setTimeout(() => inputRef.current?.focus(), 120);
+    }
   }, [open]);
-
   const handleTypingComplete = useCallback((fullText: string) => {
     setMsgs((prev) => [...prev, { role: "bot", text: fullText }]);
     setTypingText(null);
@@ -318,7 +319,7 @@ export default function CopilotPanel({ open, close }: Props) {
       >
         <span className="flex items-center gap-2 text-[12px] font-semibold text-vscode-bright">
           <Sparkles size={13} style={{ color: "#9370db" }} />
-          Mizanur's Copilot
+          Mizan's Copilot
           <span
             className="w-1.5 h-1.5 rounded-full"
             style={{

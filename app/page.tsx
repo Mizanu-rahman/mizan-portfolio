@@ -166,13 +166,19 @@ export default function Page() {
         <div className="mobile-topbar-right">
           <button
             className="mobile-copilot-btn"
-            onClick={() => setCopilotOpen((p) => !p)}
+            onClick={() => {
+              setCopilotOpen(true);
+              setSidebarOpen(false);
+            }}
           >
             ✦
-          </button>
+          </button>{" "}
           <button
             className="mobile-palette-btn"
-            onClick={() => setPaletteOpen(true)}
+            onClick={() => {
+              setPaletteOpen(true);
+              setSidebarOpen(false);
+            }}
           >
             ⌘
           </button>

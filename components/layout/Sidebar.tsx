@@ -50,7 +50,7 @@ export default function Sidebar({
           </button>
 
           <button
-            onClick={closeSidebar}
+            onClick={() => closeSidebar()}
             className="text-vscode-dim hover:text-vscode-text text-lg"
           >
             ✕
