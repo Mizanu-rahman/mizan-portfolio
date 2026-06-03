@@ -1,11 +1,14 @@
 "use client";
+
 import useTypingText from "@/hooks/useTypingText";
 import { resumeData } from "@/data/resumeData";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Globe } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaCode } from "react-icons/fa";
+import GithubModal from "@/components/GithubModal";
+import { useState } from "react";
+
 type Props = { setActiveFile: (f: string) => void };
 
 const ROLE_TAGS = [
@@ -43,6 +46,7 @@ const SOCIALS = [
 
 export default function HomePage({ setActiveFile }: Props) {
   const typed = useTypingText();
+  const [githubModalOpen, setGithubModalOpen] = useState(false);
 
   return (
     <div className="home-wrapper">
@@ -71,8 +75,6 @@ export default function HomePage({ setActiveFile }: Props) {
               />
             </em>{" "}
           </h1>
-
-          {/* Avatar circle — with glow ring */}
         </div>
 
         {/* Role tags */}
@@ -119,26 +121,42 @@ export default function HomePage({ setActiveFile }: Props) {
         </p>
 
         {/* CTAs */}
-        <div className="flex gap-2.5 flex-wrap opacity-0 animate-su-5">
-          <button
-            onClick={() => setActiveFile("projects")}
-            className="inline-flex items-center gap-2 px-5 py-2 border border-white/14 text-vscode-text text-xs font-mono rounded-sm hover:border-white/35 transition-colors"
-          >
-            📁 Projects
-          </button>
-          <button
-            onClick={() => setActiveFile("about")}
-            className="inline-flex items-center gap-2 px-5 py-2 border border-white/14 text-vscode-text text-xs font-mono rounded-sm hover:border-white/35 transition-colors"
-          >
-            👤 About Me
-          </button>
-          <button
-            onClick={() => setActiveFile("contact")}
-            className="inline-flex items-center gap-2 px-5 py-2 border border-white/14 text-vscode-text text-xs font-mono rounded-sm hover:border-white/35 transition-colors"
-          >
-            ✉ Contact
-          </button>
+        <div className="flex items-start gap-6 flex-wrap">
+          <div>
+            <div className="flex gap-2.5 flex-wrap opacity-0 animate-su-5">
+              <button
+                onClick={() => setActiveFile("projects")}
+                className="inline-flex items-center gap-2 px-5 py-2 border border-white/14 text-vscode-text text-xs font-mono rounded-sm hover:border-white/35 transition-colors"
+              >
+                📁 Projects
+              </button>
+              <button
+                onClick={() => setActiveFile("about")}
+                className="inline-flex items-center gap-2 px-5 py-2 border border-white/14 text-vscode-text text-xs font-mono rounded-sm hover:border-white/35 transition-colors"
+              >
+                👤 About Me
+              </button>
+              <button
+                onClick={() => setActiveFile("contact")}
+                className="inline-flex items-center gap-2 px-5 py-2 border border-white/14 text-vscode-text text-xs font-mono rounded-sm hover:border-white/35 transition-colors"
+              >
+                ✉ Contact
+              </button>
+              <button
+                onClick={() => setGithubModalOpen(true)}
+                className="inline-flex items-center gap-2 px-5 py-2 border border-white/14 text-vscode-text text-xs font-mono rounded-sm hover:border-white/35 transition-colors"
+              >
+                <FaGithub size={14} />
+                Recent GitHub Activity
+              </button>
+            </div>
+          </div>
         </div>
+
+        <GithubModal
+          open={githubModalOpen}
+          close={() => setGithubModalOpen(false)}
+        />
 
         {/* Stats */}
         <div

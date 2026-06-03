@@ -53,10 +53,29 @@ export default function TrainingPage() {
             ))}
           </ul>
         </div>
-
+        {/* Modules */}
+        {training.modules && (
+          <div className="mt-6 pt-4 border-t border-vscode-border">
+            <h3 className="text-[20px] font-semibold text-vscode-bright mb-3">
+              Modules Covered
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {training.modules.map((mod) => (
+                <div
+                  key={mod}
+                  className="skill-card p-2.5 text-center"
+                  style={
+                    { "--card-accent": "var(--blue2)" } as React.CSSProperties
+                  }
+                >
+                  <span className="text-[13px] text-vscode-dim">{mod}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}{" "}
         {/* References heading */}
         <h3 className="sc-title mb-4 animate-su-5">References</h3>
-
         {/* References grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-su-6">
           {training.references.map((ref, i) => (

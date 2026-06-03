@@ -2,6 +2,8 @@
 
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { resumeData } from "@/data/resumeData";
+import ProjectDemoModal from "@/components/ProjectDemoModal";
+import { useState } from "react";
 
 const ACCENT_COLORS = [
   "var(--blue2)",
@@ -13,6 +15,10 @@ const ACCENT_COLORS = [
 ];
 
 export default function ProjectsPage() {
+  const [demoOpen, setDemoOpen] = useState(false);
+  const [demoSrc, setDemoSrc] = useState("");
+  const [demoTitle, setDemoTitle] = useState("");
+
   return (
     <div className="pane-enter h-full overflow-y-auto thin-scroll py-6 px-12">
       {/* Comment */}
@@ -20,17 +26,17 @@ export default function ProjectsPage() {
         // projects.js : things I&apos;ve built
       </p>
 
-      {/* Title – exactly like About Me */}
+      {/* Title */}
       <h1 className="font-display text-[40px] font-extrabold tracking-[-2.5px] text-vscode-bright mb-1 animate-su-2">
         Projects
       </h1>
 
-      {/* Subtitle – a real code line */}
+      {/* Subtitle */}
       <p className="text-vscode-green text-[13px] mb-8 font-mono opacity-90 animate-su-3">
         Project myProject = new Project();
       </p>
 
-      {/* Projects grid – same style as skills cards */}
+      {/* Projects grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {resumeData.projects.map((project, i) => {
           const accent = ACCENT_COLORS[i % ACCENT_COLORS.length];
@@ -61,6 +67,29 @@ export default function ProjectsPage() {
                 </span>
               </div>
 
+              {/* Demo thumbnail */}
+              {project.demo && (
+                <div
+                  className="relative mb-4 rounded overflow-hidden cursor-pointer group/demo"
+                  onClick={() => {
+                    setDemoSrc(project.demo);
+                    setDemoTitle(project.title);
+                    setDemoOpen(true);
+                  }}
+                >
+                  <img
+                    src={project.demo}
+                    alt={project.title}
+                    className="w-full rounded opacity-70 group-hover/demo:opacity-100 transition-opacity"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/demo:opacity-100 transition-opacity">
+                    <span className="bg-black/60 text-white text-xs px-3 py-1.5 rounded-full">
+                      ▶ Preview
+                    </span>
+                  </div>
+                </div>
+              )}
+
               {/* Description */}
               <p className="text-[13px] text-vscode-dim leading-relaxed mb-5 flex-1">
                 {project.description}
@@ -78,7 +107,7 @@ export default function ProjectsPage() {
                 )}
               </div>
 
-              {/* Links – simple outline buttons */}
+              {/* Links */}
               <div className="flex flex-wrap gap-3 mt-auto">
                 {project.githubLinks.map((link) => (
                   <a
@@ -108,6 +137,14 @@ export default function ProjectsPage() {
           );
         })}
       </div>
+
+      {/* Demo Modal */}
+      <ProjectDemoModal
+        open={demoOpen}
+        close={() => setDemoOpen(false)}
+        title={demoTitle}
+        src={demoSrc}
+      />
     </div>
   );
 }
