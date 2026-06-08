@@ -64,7 +64,6 @@ function Bar({
     <div className="sbar">
       <div className="sbar-header">
         <span>{label}</span>
-        <span>{pct}%</span>
       </div>
       <div className="sbar-track">
         <div

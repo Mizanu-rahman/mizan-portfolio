@@ -42,6 +42,26 @@ body {
   --red: #f44747;
 }
 
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg2: #f3f3f3;
+  --bg3: #e8e8e8;
+  --bg4: #dddddd;
+  --title: #dddddd;
+  --border: #cccccc;
+  --text: #333333;
+  --dim: #888888;
+  --bright: #000000;
+  --blue: #0066cc;
+  --blue2: #007acc;
+  --green: #22863a;
+  --gcm: #2da44e;
+  --yellow: #b08800;
+  --orange: #bc4c00;
+  --purple: #8250df;
+  --pink: #d6336c;
+  --red: #cf222e;
+}
 [data-theme="rose-pine"] {
   --bg: #1f1d2e;
   --bg2: #26233a;

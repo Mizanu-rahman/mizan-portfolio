@@ -7,7 +7,7 @@ import ProjectsPage from "@/components/pages/ProjectsPage";
 import SkillsPage from "@/components/pages/SkillsPage";
 import TrainingPage from "@/components/pages/TrainingPage";
 import ContactPage from "@/components/pages/ContactPage";
-
+import { AnimatePresence, motion } from "framer-motion";
 type Props = {
   activeFile: string;
   setActiveFile: (f: string) => void;
@@ -91,7 +91,6 @@ export default function Editor({
           );
         })}
       </div>
-
       {/* ── BREADCRUMB ── h-[26px] exactly, no padding-top/bottom that creates gap */}
       <div
         className="hidden md:flex items-center gap-0.5 px-4 text-xs text-vscode-dim border-b border-vscode-border bg-vscode-bg flex-shrink-0"
@@ -120,13 +119,20 @@ export default function Editor({
           ),
         )}
       </div>
-
-      {/* ── PAGE CONTENT — takes remaining height ── */}
-      <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden thin-scroll">
-        <div className="pane-enter" key={activeFile}>
-          {renderPage()}
-        </div>
-      </div>
+      {/* ── PAGE CONTENT with transition ── */}
+      {/* ── PAGE CONTENT with transition ── */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeFile}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.15 }}
+          className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden thin-scroll"
+        >
+          <div className="pane-enter">{renderPage()}</div>
+        </motion.div>
+      </AnimatePresence>{" "}
     </div>
   );
 }

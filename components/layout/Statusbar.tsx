@@ -117,6 +117,14 @@ export default function Statusbar({
           Prettier
         </button>
 
+        {/* Light/Dark toggle */}
+        <button
+          onClick={() => setTheme(theme === "light" ? "" : "light")}
+          className="flex items-center gap-1 px-1.5 py-0.5 rounded-sm text-white/85 hover:bg-white/15 transition-colors text-[11px] whitespace-nowrap"
+          title="Toggle light/dark mode"
+        >
+          {theme === "light" ? "🌙" : "☀️"}
+        </button>
         {/* Theme toggle button – shows the full label with emoji */}
         <button
           ref={buttonRef}

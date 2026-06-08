@@ -7,7 +7,6 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    // Simulate loading progress
     const steps = [15, 35, 55, 75, 90, 100];
     let i = 0;
     const interval = setInterval(() => {
@@ -15,10 +14,9 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
       i++;
       if (i >= steps.length) {
         clearInterval(interval);
-        // Fade out
         setTimeout(() => {
           setVisible(false);
-          setTimeout(onFinish, 300); // let fade complete
+          setTimeout(onFinish, 300);
         }, 400);
       }
     }, 250);
@@ -33,17 +31,12 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
       className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-[#1e1e1e] transition-opacity duration-300"
       style={{ opacity: visible ? 1 : 0 }}
     >
-      {/* Logo / Initials */}
-      <div className="mb-6 w-20 h-20 rounded-full border-2 border-[#ff6fd8] flex items-center justify-center">
-        <span className="text-2xl font-extrabold text-[#ff6fd8] font-display">
-          MR
+      {/* Glitchy "M" */}
+      <div className="relative mb-8 text-8xl font-black font-display text-white select-none">
+        <span className="relative inline-block glitch-text" data-text="M">
+          M
         </span>
       </div>
-
-      {/* Title */}
-      <h1 className="text-base font-semibold text-white mb-6 font-display tracking-tight">
-        Mizan&apos;s Portfolio
-      </h1>
 
       {/* Loading bar */}
       <div className="w-48 h-1 bg-[#333] rounded-full overflow-hidden">
@@ -57,6 +50,47 @@ export default function SplashScreen({ onFinish }: { onFinish: () => void }) {
       <p className="mt-3 text-[11px] text-zinc-500 font-mono">
         {progress < 100 ? "Loading..." : "Ready"}
       </p>
+
+      {/* Glitch animation CSS */}
+      <style>{`
+        .glitch-text {
+          position: relative;
+          display: inline-block;
+          animation: glitch-skew 1s infinite linear alternate-reverse;
+        }
+        .glitch-text::before,
+        .glitch-text::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0.8;
+        }
+        .glitch-text::before {
+          color: #ff6fd8;
+          z-index: -1;
+          animation: glitch-anim-1 0.4s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+          color: #4fc1ff;
+          z-index: -2;
+          animation: glitch-anim-2 0.5s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim-1 {
+          0% { clip-path: inset(20% 0 30% 0); transform: translate(-2px, -2px); }
+          100% { clip-path: inset(60% 0 10% 0); transform: translate(2px, 2px); }
+        }
+        @keyframes glitch-anim-2 {
+          0% { clip-path: inset(40% 0 20% 0); transform: translate(2px, -2px); }
+          100% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 2px); }
+        }
+        @keyframes glitch-skew {
+          0% { transform: skew(0deg); }
+          100% { transform: skew(2deg); }
+        }
+      `}</style>
     </div>
   );
 }
