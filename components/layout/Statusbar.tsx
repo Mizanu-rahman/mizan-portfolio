@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { files } from "@/lib/files";
 import { useToast } from "@/lib/toast-context";
-
+import LastUpdated from "@/components/LastUpdated";
 const LANG_MAP: Record<string, string> = {
   home: "TypeScript React",
   about: "HTML",
@@ -110,13 +110,17 @@ export default function Statusbar({
         <button className="flex items-center gap-1 px-1.5 py-0.5 rounded-sm text-white/85 hover:bg-white/15 transition-colors text-[11px] whitespace-nowrap">
           {LANG_MAP[activeFile] ?? "TypeScript React"}
         </button>
-        <button className="flex items-center gap-1 px-1.5 py-0.5 rounded-sm text-white/85 hover:bg-white/15 transition-colors text-[11px] whitespace-nowrap">
-          UTF-8
-        </button>
-        <button className="flex items-center gap-1 px-1.5 py-0.5 rounded-sm text-white/85 hover:bg-white/15 transition-colors text-[11px] whitespace-nowrap">
-          Prettier
-        </button>
-
+        <LastUpdated />
+        {/* Visitor counter badge (hits.sh) */}
+        <img
+          src="https://hits.sh/mizan-portfolio.vercel.app.svg?label=Visits"
+          alt="visitors"
+          style={{
+            height: "16px",
+            filter: "invert(1) opacity(0.8)",
+            flexShrink: 0,
+          }}
+        />
         {/* Light/Dark toggle */}
         <button
           onClick={() => setTheme(theme === "light" ? "" : "light")}

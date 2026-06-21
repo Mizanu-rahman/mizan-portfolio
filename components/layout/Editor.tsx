@@ -130,7 +130,7 @@ export default function Editor({
           transition={{ duration: 0.15 }}
           className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden thin-scroll"
         >
-          <div className="pane-enter">{renderPage()}</div>
+          {renderPage()}
         </motion.div>
       </AnimatePresence>{" "}
     </div>
