@@ -9,23 +9,18 @@ try {
     month: "short",
     day: "numeric",
   });
-  const data = { updated: formatted };
   fs.writeFileSync(
     path.join(__dirname, "..", "public", "last-updated.json"),
-    JSON.stringify(data),
+    JSON.stringify({ updated: formatted }),
   );
-  console.log("Last updated timestamp generated:", formatted);
 } catch (error) {
-  // Fallback – use current date
   const formatted = new Date().toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
     day: "numeric",
   });
-  const data = { updated: formatted };
   fs.writeFileSync(
     path.join(__dirname, "..", "public", "last-updated.json"),
-    JSON.stringify(data),
+    JSON.stringify({ updated: formatted }),
   );
-  console.log("Fallback timestamp generated:", formatted);
 }
