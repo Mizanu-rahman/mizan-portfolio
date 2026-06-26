@@ -53,7 +53,7 @@ export default function HomePage({ setActiveFile }: Props) {
       <div className="home-content">
         {/* Comment */}
         <p className="text-vscode-green text-sm mb-2.5 opacity-0 animate-su-1">
-          // Hello world !! Welcome to my Portfolio 💜
+          //Hello world ! Welcome to my Portfolio💜
         </p>
 
         {/* Name + Avatar row */}
