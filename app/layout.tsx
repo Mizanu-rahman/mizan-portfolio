@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { jetbrainsMono, syne } from "./fonts";
 import "./globals.css";
+import FaviconAnimator from "@/components/FaviconAnimator";
 
 export const metadata: Metadata = {
   title: "Mizanur Rahman | Portfolio",
@@ -13,28 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-        (function() {
-          var favicon = document.createElement('link');
-          favicon.rel = 'icon';
-          favicon.type = 'image/svg+xml';
-          document.head.appendChild(favicon);
-          var toggle = true;
-          setInterval(function() {
-            favicon.href = toggle ? '/favicon-1.svg' : '/favicon-2.svg';
-            toggle = !toggle;
-          }, 1500);
-        })();
-      `,
-          }}
-        />
-      </head>
+      <head></head>
       <body
         className={`${jetbrainsMono.variable} ${syne.variable} antialiased`}
       >
+        <FaviconAnimator />
         {children}
       </body>
     </html>

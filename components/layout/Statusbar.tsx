@@ -101,12 +101,12 @@ export default function Statusbar({
 
       {/* RIGHT */}
       <div className="flex items-center gap-0.5">
-        <button
+        {/* <button
           onClick={openPalette}
           className="flex items-center gap-1 px-1.5 py-0.5 rounded-sm text-white/85 hover:bg-white/15 transition-colors text-[11px] whitespace-nowrap"
         >
           Copilot
-        </button>
+        </button> */}
         <button className="flex items-center gap-1 px-1.5 py-0.5 rounded-sm text-white/85 hover:bg-white/15 transition-colors text-[11px] whitespace-nowrap">
           {LANG_MAP[activeFile] ?? "TypeScript React"}
         </button>
