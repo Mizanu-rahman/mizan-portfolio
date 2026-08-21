@@ -27,7 +27,7 @@ export default function GithubModal({ open, close }: Props) {
       setLoading(true);
       try {
         const res = await fetch(
-          "https://api.github.com/users/Mizanur-Rahmann/events/public?per_page=8",
+          "https://api.github.com/users/Mizanu-Rahman/events/public?per_page=8",
         );
         if (!res.ok) throw new Error("Failed");
         const data = await res.json();
@@ -115,7 +115,7 @@ export default function GithubModal({ open, close }: Props) {
         {/* Footer */}
         <div className="border-t border-[var(--border)] px-5 py-3">
           <a
-            href="https://github.com/Mizanur-Rahmann"
+            href="https://github.com/Mizanu-Rahman"
             target="_blank"
             rel="noreferrer"
             className="text-[11px] text-[var(--blue)] hover:text-[var(--bright)] transition-colors no-underline"

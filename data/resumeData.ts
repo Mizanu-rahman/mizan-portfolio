@@ -4,7 +4,7 @@ export const resumeData = {
   location: "Chattogram, Bangladesh",
   email: "mixanurahman@yahoo.com",
   phone: "+8801680232852",
-  github: "https://github.com/Mizanur-Rahmann",
+  github: "https://github.com/Mizanu-Rahman",
   linkedin: "https://www.linkedin.com/in/mizanur-rahman-developer",
   website: "https://mizanur-rahmann.github.io/",
 
@@ -81,19 +81,19 @@ export const resumeData = {
         "Tailwind",
         "PdfSharpCore",
       ],
-      github: "https://github.com/Mizanur-Rahmann/FinalProject_API",
+      github: "https://github.com/Mizanu-Rahman/FinalProject_API",
       githubLinks: [
         {
           label: "API Repo",
-          url: "https://github.com/Mizanur-Rahmann/FinalProject_API",
+          url: "https://github.com/Mizanu-Rahman/FinalProject_API",
         },
         {
           label: "Angular UI",
-          url: "https://github.com/Mizanur-Rahmann/Library_UI",
+          url: "https://github.com/Mizanu-Rahman/Library_UI",
         },
         {
           label: "React UI",
-          url: "https://github.com/Mizanur-Rahmann/myLibraryUI",
+          url: "https://github.com/Mizanu-Rahman/myLibraryUI",
         },
       ],
       live: "",
@@ -113,11 +113,11 @@ export const resumeData = {
         "Bootstrap",
         "jQuery/AJAX",
       ],
-      github: "https://github.com/Mizanur-Rahmann/MVC_Core_Project",
+      github: "https://github.com/Mizanu-Rahman/MVC_Core_Project",
       githubLinks: [
         {
           label: "GitHub",
-          url: "https://github.com/Mizanur-Rahmann/MVC_Core_Project",
+          url: "https://github.com/Mizanu-Rahman/MVC_Core_Project",
         },
       ],
       live: "",
@@ -131,11 +131,11 @@ export const resumeData = {
       description:
         "Desktop application for educational institutions to manage courses, students, and instructors with complete CRUD, real-time search, referential integrity, and Crystal Reports.",
       stack: ["C#", "WinForms", "ADO.NET", "SQL Server", "Crystal Reports"],
-      github: "https://github.com/Mizanur-Rahmann/ADO.Net_WindowsForm",
+      github: "https://github.com/Mizanu-Rahman/ADO.Net_WindowsForm",
       githubLinks: [
         {
           label: "GitHub",
-          url: "https://github.com/Mizanur-Rahmann/ADO.Net_WindowsForm",
+          url: "https://github.com/Mizanu-Rahman/ADO.Net_WindowsForm",
         },
       ],
       live: "",
@@ -160,11 +160,11 @@ export const resumeData = {
         "Socket.IO",
         "Multer",
       ],
-      github: "https://github.com/Mizanur-Rahmann/Realtime-E-Commerce-Website",
+      github: "https://github.com/Mizanu-Rahman/Realtime-E-Commerce-Website",
       githubLinks: [
         {
           label: "GitHub",
-          url: "https://github.com/Mizanur-Rahmann/Realtime-E-Commerce-Website",
+          url: "https://github.com/Mizanu-Rahman/Realtime-E-Commerce-Website",
         },
       ],
       live: "",
@@ -184,11 +184,11 @@ export const resumeData = {
         "Bootstrap 5",
         "jQuery/AJAX",
       ],
-      github: "https://github.com/Mizanur-Rahmann/MVC-CodeFirst-Project",
+      github: "https://github.com/Mizanu-Rahman/MVC-CodeFirst-Project",
       githubLinks: [
         {
           label: "GitHub",
-          url: "https://github.com/Mizanur-Rahmann/MVC-CodeFirst-Project",
+          url: "https://github.com/Mizanu-Rahman/MVC-CodeFirst-Project",
         },
       ],
       live: "",
@@ -215,12 +215,12 @@ export const resumeData = {
         "Recharts",
         "pdfkit",
       ],
-      github: "https://github.com/Mizanur-Rahmann/backend",
+      github: "https://github.com/Mizanu-Rahman/backend",
       githubLinks: [
-        { label: "Backend", url: "https://github.com/Mizanur-Rahmann/backend" },
+        { label: "Backend", url: "https://github.com/Mizanu-Rahman/backend" },
         {
           label: "Frontend",
-          url: "https://github.com/Mizanur-Rahmann/project-mern-frontend",
+          url: "https://github.com/Mizanu-Rahman/project-mern-frontend",
         },
       ],
       live: "",

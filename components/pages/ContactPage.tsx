@@ -65,7 +65,7 @@ export default function ContactPage() {
     {
       icon: FaGithub,
       label: "GitHub",
-      value: "github.com/Mizanur-Rahmann",
+      value: "github.com/Mizanu-Rahman",
       href: resumeData.github,
       color: "#c084fc",
     },
